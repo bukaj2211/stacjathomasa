@@ -1,0 +1,49 @@
+
+<html>
+<head>
+    <title>Meme Generator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style></style>
+
+    <script src="dist/jquery-1.11.3.min.js"></script>
+    <script src="dist/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="dist/jquery.memegenerator.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="dist/jquery.memegenerator.min.css">
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <style>
+        .mg-controls{
+            visibility: hidden;
+            display: none;
+        }
+    </style>
+    <script src="rzeczowniki.js"></script>
+    <script src="przymiotniki.js"></script>
+</head>
+<body>
+<script>
+    window.refresh = function(){ window.location = window.location.toString() }
+</script>
+
+<div class="example bootstrap">
+    <img id="meme-image" onclick="refresh()">
+</div>
+<center class="next station" >
+    <button type="button" style="font-size: 30px" onclick="refresh()">Następna stacja >></button>
+</center>
+
+
+<script>
+  var bottomText = [window.randomPrzymiotnik(), window.randomRzeczownik()].join(' ');
+  document.querySelector('#meme-image').src = "images/" + parseInt((Math.random()*6)+1).toString() + "r.jpg"
+
+  $(".example.bootstrap img").memeGenerator({
+    dragResizeEnabled: false,
+    captions:[
+      'NASTĘPNA STACJA',
+      bottomText
+    ]
+  });
+</script>
+</body>
+</html>
